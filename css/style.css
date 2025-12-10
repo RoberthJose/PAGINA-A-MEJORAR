@@ -61,8 +61,7 @@ a {
   grid-template-columns: 20% 55% 20%;
   gap: 2%;
   padding: 20px;
-  align-items: start; /* alinear arriba */
-  grid-auto-rows: minmax(auto, auto); /* filas se ajustan a contenido más alto */
+  align-items: start;
 }
 
 /* ---------- COLUMNA IZQUIERDA ---------- */
@@ -84,14 +83,13 @@ a {
   color: #0047ab;
 }
 
-/* ---------- CONTENIDO CENTRAL ---------- */
+/* ---------- CONTENIDO CENTRAL (GRID INTERNO) ---------- */
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* PC: 3 columnas */
   gap: 20px;
 }
 
-/* Hacer que todos los bloques tengan igual altura por fila */
 .block {
   display: flex;
   flex-direction: column;
@@ -102,7 +100,7 @@ a {
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  width: 100%;
+  width: 100%; /* cuadro título ocupa todo el ancho del bloque */
   box-sizing: border-box;
 }
 
@@ -110,9 +108,7 @@ a {
   padding: 3px 0;
 }
 
-/* -------------------
-   COLUMNA DERECHA (Trabajo + Ciudades)
--------------------- */
+/* ---------- COLUMNA DERECHA (Trabajo + Ciudades) ---------- */
 .sidebar-right {
   display: grid;
   gap: 20px;
@@ -128,7 +124,7 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
-  width: 100%;
+  width: 100%; /* cuadro título ocupa todo el ancho del bloque */
   box-sizing: border-box;
 }
 
@@ -137,26 +133,27 @@ a {
 }
 
 /* =========================
-   PC: organización filas
+   PC: filas alineadas
 ========================= */
 @media (min-width: 1025px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Fila 1: Comunidad + Vivienda + Servicios */
+  /* Igualar altura de bloques de la fila 1 */
   .block:nth-child(1),
   .block:nth-child(2),
   .block:nth-child(3) {
     width: 100%;
   }
 
-  /* Fila 2: Se vende + Foros de debate */
+  /* Igualar altura de bloques de la fila 2 */
   .block:nth-child(4),
   .block:nth-child(5) {
     width: 100%;
   }
 
+  /* Ajustar derecha para que coincida con altura de cada fila */
   .sidebar-right {
     grid-template-rows: repeat(2, 1fr); /* dos bloques igual altura */
   }
@@ -188,8 +185,9 @@ a {
     grid-column: 1 / -1;
   }
 
+  /* Mantener derecha con bloques igual altura */
   .sidebar-right {
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
