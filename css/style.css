@@ -62,9 +62,12 @@ body {
    CONTENEDOR PRINCIPAL
 ========================= */
 .container {
-  width: 1200px;         /* layout fijo */
+  max-width: 1200px; /* cambio de width fijo a max-width */
   margin: 20px auto;
   display: flex;
+  flex-wrap: wrap; /* permite que los bloques bajen si no caben */
+  gap: 16px;
+  padding: 0 10px;
 }
 
 /* =========================
@@ -85,7 +88,7 @@ body {
 }
 
 .sidebar-left section {
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* mayor separación */
 }
 
 .sidebar-left a {
@@ -101,22 +104,24 @@ body {
    CONTENIDO CENTRAL
 ========================= */
 .content {
-  width: 700px;
-  padding: 10px;
+  flex: 1; /* ocupa todo el espacio disponible */
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  min-width: 0;
 }
 
 .block {
   width: 210px;
+  flex: 1 1 200px; /* bloques adaptables */
+  margin-bottom: 15px; /* separación vertical */
 }
 
 .block h2 {
   background: var(--bg-title);
   font-size: 14px;
   font-weight: bold;
-  padding: 5px;
+  padding: 8px;
   margin-bottom: 6px;
   text-align: center;
 }
@@ -219,4 +224,52 @@ body {
 .footer p {
   margin-top: 6px;
   color: #555;
+}
+
+/* =========================
+   OCULTAR SECCIONES EN MÓVIL
+========================= */
+.hide-on-mobile {
+  display: block; /* visible normalmente */
+}
+
+/* =========================
+   MEDIA QUERIES PARA RESPONSIVE
+========================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sidebar-left,
+  .sidebar-right {
+    width: 160px;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar-left,
+  .sidebar-right,
+  .content {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* ocultar secciones específicas */
+  .hide-on-mobile {
+    display: none;
+  }
 }
