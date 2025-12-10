@@ -156,12 +156,13 @@ body {
   padding: 10px;
   border-left: 1px solid #ccc;
   font-size: 13px;
+  background: var(--bg-sidebar);
 }
 
 .sidebar-right section {
   margin-bottom: 15px;
   padding: 5px;
-  background: var(--bg-title); /* color en PC */
+  background: var(--bg-title); /* color solo en PC */
 }
 
 .sidebar-right h3 {
@@ -264,11 +265,11 @@ body {
     width: 100%;
   }
 
-  /* Sidebar derecho sin color en tablet */
-  .sidebar-right section,
-  .sidebar-right h3 {
-    background: transparent;
-    padding: 0;
+  /* Sidebar derecho sin color en tablet para bloques específicos */
+  .sidebar-right .no-bg-mobile,
+  .sidebar-right .no-bg-mobile h3 {
+    background: transparent !important;
+    padding: 0 !important;
     margin-bottom: 15px;
     text-align: left;
   }
@@ -297,11 +298,6 @@ body {
     margin-bottom: 15px;
   }
 
-  /* ocultar secciones específicas */
-  .hide-on-mobile {
-    display: none;
-  }
-
   /* Sidebar derecho sin color en móvil */
   .sidebar-right {
     border-left: none;
@@ -309,10 +305,10 @@ body {
     padding: 0;
   }
 
-  .sidebar-right section,
-  .sidebar-right h3 {
-    background: transparent;
-    padding: 0;
+  .sidebar-right .no-bg-mobile,
+  .sidebar-right .no-bg-mobile h3 {
+    background: transparent !important;
+    padding: 0 !important;
     margin-bottom: 15px;
     text-align: left;
   }
@@ -347,10 +343,10 @@ body {
     flex: 1 1 100%;
   }
 
-  .sidebar-right section,
-  .sidebar-right h3 {
-    background: transparent;
-    padding: 0;
+  .sidebar-right .no-bg-mobile,
+  .sidebar-right .no-bg-mobile h3 {
+    background: transparent !important;
+    padding: 0 !important;
     margin-bottom: 10px;
   }
 
@@ -358,4 +354,14 @@ body {
     margin-bottom: 4px;
   }
 }
+
+/* =========================
+   BARRA HAMBURGUESA ACTIVA
+========================= */
+.sidebar-left.active,
+.sidebar-right.active {
+  display: block;
+}
+
+
 
