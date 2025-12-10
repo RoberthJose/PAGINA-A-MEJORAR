@@ -13,7 +13,9 @@ body {
   color: #000;
 }
 
-/* VARIABLES DE COLOR */
+/* =========================
+   VARIABLES DE COLOR
+========================= */
 :root {
   --color-link: #1a5fd6;
   --color-hover: #000;
@@ -59,7 +61,7 @@ body {
   color: #ccc;
 }
 
-/* Botón hamburguesa visual */
+/* Botón hamburguesa */
 .menu-toggle {
   display: none;
   font-size: 24px;
@@ -249,24 +251,30 @@ body {
 ========================= */
 
 /* -------------------------
-   Tablet y dispositivos grandes
+   Tablet / iPad Air
 ------------------------- */
 @media (max-width: 1024px) {
   .container {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .sidebar-left,
   .sidebar-right {
-    width: 160px;
+    width: 48%;
   }
 
   .content {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  /* Sidebar derecha sin color */
+  .block {
+    flex: 1 1 calc(50% - 16px);
+  }
+
   .sidebar-right section,
   .sidebar-right h3 {
     background: transparent;
@@ -275,7 +283,6 @@ body {
     text-align: left;
   }
 
-  /* Mostrar hamburguesa */
   .menu-toggle {
     display: block;
   }
@@ -286,7 +293,7 @@ body {
 }
 
 /* -------------------------
-   Móvil y dispositivos pequeños
+   Móvil / iPhone XR
 ------------------------- */
 @media (max-width: 768px) {
   .container {
@@ -301,6 +308,11 @@ body {
     margin-bottom: 15px;
   }
 
+  /* Ocultar secciones específicas */
+  .sidebar-left .hide-on-mobile {
+    display: none;
+  }
+
   /* Sidebar derecho: quitar borde y fondo general */
   .sidebar-right {
     border-left: none;
@@ -308,7 +320,6 @@ body {
     padding: 0;
   }
 
-  /* Secciones que NO deben tener fondo en móvil */
   .sidebar-right .no-bg-mobile {
     background: transparent;
     padding: 0;
@@ -316,17 +327,10 @@ body {
     text-align: left;
   }
 
-  .sidebar-right ul {
-    padding-left: 0;
+  .block {
+    flex: 1 1 100%;
   }
 
-  .sidebar-right li {
-    width: fit-content;
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  /* Barra hamburguesa visible */
   .menu-toggle {
     display: block;
   }
@@ -337,28 +341,18 @@ body {
 }
 
 /* -------------------------
-   Extra para iPhone XR y móviles grandes
+   Extra para móviles muy pequeños
 ------------------------- */
 @media (max-width: 414px) {
   .container {
     padding: 5px;
   }
 
-  .block {
-    flex: 1 1 100%;
-  }
-
-  .sidebar-right section,
-  .sidebar-right h3 {
-    margin-bottom: 10px;
-  }
-
   .sidebar-right li {
     margin-bottom: 4px;
   }
+
+  .block {
+    flex: 1 1 100%;
+  }
 }
-
-
-
-
-
