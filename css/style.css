@@ -61,7 +61,7 @@ a {
   grid-template-columns: 20% 55% 20%;
   gap: 2%;
   padding: 20px;
-  align-items: start; /* para alinear arriba */
+  align-items: start; /* alinear arriba */
 }
 
 /* ---------- COLUMNA IZQUIERDA ---------- */
@@ -90,12 +90,18 @@ a {
   gap: 20px;
 }
 
+/* Hacer que todos los bloques tengan igual altura en su fila */
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
 .block h2 {
   background: #ddd;
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  width: 100%; /* todos los títulos del mismo ancho que el bloque */
+  width: 100%; /* mismo ancho que bloque */
   box-sizing: border-box;
 }
 
@@ -103,11 +109,16 @@ a {
   padding: 3px 0;
 }
 
-/* ---------- COLUMNA DERECHA ---------- */
+/* ---------- COLUMNA DERECHA (altura igual a central) ---------- */
 .sidebar-right {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr; /* cada bloque igual de alto */
   gap: 20px;
+}
+
+.right-block {
+  display: flex;
+  flex-direction: column;
 }
 
 .right-block h3 {
@@ -115,7 +126,7 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
-  width: 100%; /* mismo ancho que bloque central */
+  width: 100%; /* mismo ancho que central */
   box-sizing: border-box;
 }
 
@@ -132,7 +143,7 @@ a {
   }
 
   .block:nth-child(5) {
-    grid-column: 1 / -1; /* foro de debate ocupa todo ancho */
+    grid-column: 1 / -1; /* Foro de debate ocupa todo ancho */
   }
 }
 
@@ -202,5 +213,6 @@ a {
     color: #0047ab;
   }
 }
+
 
 
