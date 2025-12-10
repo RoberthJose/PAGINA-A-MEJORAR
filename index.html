@@ -20,31 +20,32 @@
     <!-- Botón hamburguesa -->
     <div class="menu-toggle">☰</div>
 
-    <div class="user-options">
+    <!-- MENÚ DE USUARIO -->
+    <nav class="user-options">
       <a href="#">favoritos</a>
       <a href="#">anunciate</a>
       <a href="#">cuenta</a>
-    </div>
+    </nav>
   </header>
 
   <!-- CONTENEDOR PRINCIPAL -->
   <main class="container">
 
-    <!-- COLUMNA IZQUIERDA -->
-    <aside class="sidebar-left menu">
+    <!-- COLUMNA IZQUIERDA (solo visible en tablet y PC) -->
+    <aside class="sidebar-left menu hide-on-mobile">
       <input type="text" placeholder="busca en CL">
 
-      <section class="agenda hide-on-mobile">
+      <section class="agenda">
         <h3>agenda de eventos</h3>
       </section>
 
-      <section class="ayuda hide-on-mobile">
+      <section class="ayuda">
         <a href="#">ayuda, preguntas, abusos</a>
         <a href="#">evitar estafas/fraudes</a>
         <a href="#">consejos de seguridad</a>
       </section>
 
-      <section class="info hide-on-mobile">
+      <section class="info">
         <a href="#">acerca de craigslist</a>
         <a href="#">what's new</a>
         <a href="#">estado del sistema</a>
@@ -129,7 +130,7 @@
 
     <!-- COLUMNA DERECHA -->
     <aside class="sidebar-right">
-      <section class="no-bg-mobile">
+      <section class="block work">
         <h3>trabajo</h3>
         <ul>
           <li>administración/oficina</li>
@@ -144,7 +145,7 @@
         </ul>
       </section>
 
-      <section class="no-bg-mobile">
+      <section class="block cities">
         <h3>ciudades</h3>
         <ul>
           <li>quito</li>
