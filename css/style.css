@@ -163,12 +163,12 @@ body {
 .sidebar-right section {
   margin-bottom: 15px;
   padding: 5px;
-  background: var(--bg-title); /* color solo en PC */
+  background: var(--bg-title); /* color en PC y tablet */
 }
 
 .sidebar-right h3 {
   font-size: 14px;
-  text-align: center;
+  text-align: center; /* Títulos centrados */
   margin-bottom: 6px;
 }
 
@@ -275,12 +275,12 @@ body {
     flex: 1 1 calc(50% - 16px);
   }
 
-  .sidebar-right section,
-  .sidebar-right h3 {
-    background: transparent;
-    padding: 0;
+  /* Sidebar derecho: mantener cuadrito en tablet */
+  .sidebar-right section {
+    background: var(--bg-title);
+    padding: 5px;
     margin-bottom: 15px;
-    text-align: left;
+    text-align: center;
   }
 
   .menu-toggle {
@@ -293,7 +293,7 @@ body {
 }
 
 /* -------------------------
-   Móvil / iPhone XR
+   Móvil / iPhone XR y todos los móviles
 ------------------------- */
 @media (max-width: 768px) {
   .container {
@@ -308,7 +308,7 @@ body {
     margin-bottom: 15px;
   }
 
-  /* Ocultar secciones específicas */
+  /* Ocultar secciones específicas en todos los móviles */
   .sidebar-left .hide-on-mobile {
     display: none;
   }
@@ -320,11 +320,11 @@ body {
     padding: 0;
   }
 
-  .sidebar-right .no-bg-mobile {
-    background: transparent;
-    padding: 0;
+  .sidebar-right section {
+    background: var(--bg-title); /* mantener cuadrito gris solo en PC y tablet */
+    padding: 5px;
     margin-bottom: 15px;
-    text-align: left;
+    text-align: center;
   }
 
   .block {
@@ -356,3 +356,4 @@ body {
     flex: 1 1 100%;
   }
 }
+
