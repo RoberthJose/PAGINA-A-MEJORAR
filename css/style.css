@@ -30,6 +30,7 @@ body {
   justify-content: space-between;
   padding: 10px 16px;
   background: #000;
+  position: relative;
 }
 
 .logo h1 {
@@ -58,14 +59,22 @@ body {
   color: #ccc;
 }
 
+/* Botón hamburguesa visual */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
 /* =========================
    CONTENEDOR PRINCIPAL
 ========================= */
 .container {
-  max-width: 1200px; /* cambio de width fijo a max-width */
+  max-width: 1200px;
   margin: 20px auto;
   display: flex;
-  flex-wrap: wrap; /* permite que los bloques bajen si no caben */
+  flex-wrap: wrap;
   gap: 16px;
   padding: 0 10px;
 }
@@ -88,7 +97,7 @@ body {
 }
 
 .sidebar-left section {
-  margin-bottom: 20px; /* mayor separación */
+  margin-bottom: 20px;
 }
 
 .sidebar-left a {
@@ -104,7 +113,7 @@ body {
    CONTENIDO CENTRAL
 ========================= */
 .content {
-  flex: 1; /* ocupa todo el espacio disponible */
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -113,8 +122,8 @@ body {
 
 .block {
   width: 210px;
-  flex: 1 1 200px; /* bloques adaptables */
-  margin-bottom: 15px; /* separación vertical */
+  flex: 1 1 200px;
+  margin-bottom: 15px;
 }
 
 .block h2 {
@@ -146,13 +155,16 @@ body {
   width: 180px;
   padding: 10px;
   border-left: 1px solid #ccc;
-  background: var(--bg-sidebar);
   font-size: 13px;
 }
 
-.sidebar-right h3 {
-  background: var(--bg-title);
+.sidebar-right section {
+  margin-bottom: 15px;
   padding: 5px;
+  background: var(--bg-title); /* color solo en PC */
+}
+
+.sidebar-right h3 {
   font-size: 14px;
   text-align: center;
   margin-bottom: 6px;
@@ -160,7 +172,6 @@ body {
 
 .sidebar-right ul {
   list-style: none;
-  margin-bottom: 15px;
 }
 
 .sidebar-right li {
@@ -230,11 +241,11 @@ body {
    OCULTAR SECCIONES EN MÓVIL
 ========================= */
 .hide-on-mobile {
-  display: block; /* visible normalmente */
+  display: block;
 }
 
 /* =========================
-   MEDIA QUERIES PARA RESPONSIVE
+   MEDIA QUERIES
 ========================= */
 
 /* Tablet */
@@ -251,6 +262,21 @@ body {
 
   .content {
     width: 100%;
+  }
+
+  /* Sidebar derecha sin color en tablet */
+  .sidebar-right section {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Mostrar hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
+    display: none;
   }
 }
 
@@ -270,6 +296,21 @@ body {
 
   /* ocultar secciones específicas */
   .hide-on-mobile {
+    display: none;
+  }
+
+  /* Sidebar derecha sin color en móvil */
+  .sidebar-right section {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Encabezado: barra hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
     display: none;
   }
 }
