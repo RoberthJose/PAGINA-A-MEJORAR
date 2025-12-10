@@ -14,7 +14,16 @@ body {
 }
 
 /* =========================
-   ENCABEZADO
+   VARIABLES DE COLOR
+========================= */
+:root {
+  --primary-color: #0047ab; /* azul títulos */
+  --text-color: #222;       /* texto negro */
+  --bg-gray: #e0e0e0;       /* cuadro gris */
+}
+
+/* =========================
+   HEADER
 ========================= */
 .header {
   display: flex;
@@ -23,37 +32,32 @@ body {
   padding: 10px 20px;
   background: #fff;
   border-bottom: 1px solid #ccc;
-  position: relative;
 }
 
-.logo h1 {
+.header .logo h1 {
+  color: var(--primary-color);
   font-size: 24px;
+}
+
+.header .logo span {
+  color: #000;
+}
+
+.header .location {
   font-weight: bold;
-}
-
-.logo span {
-  color: #0047ab;
-}
-
-.location strong {
-  font-size: 14px;
+  color: var(--text-color);
 }
 
 .menu-toggle {
+  display: none;
   font-size: 24px;
   cursor: pointer;
-  display: none; /* Solo se muestra en móvil */
-}
-
-.user-options {
-  display: flex;
-  gap: 15px;
 }
 
 .user-options a {
+  margin-left: 10px;
   text-decoration: none;
-  color: #0047ab;
-  font-weight: bold;
+  color: var(--primary-color);
 }
 
 /* =========================
@@ -61,71 +65,91 @@ body {
 ========================= */
 .container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
   gap: 20px;
 }
 
-/* Sidebar izquierdo */
+/* =========================
+   COLUMNA IZQUIERDA
+========================= */
 .sidebar-left {
-  width: 20%;
+  width: 220px;
 }
 
 .sidebar-left input {
   width: 100%;
-  padding: 5px;
+  padding: 8px;
   margin-bottom: 10px;
 }
 
 .sidebar-left section h3 {
-  font-size: 16px;
+  background: var(--bg-gray);
+  text-align: center;
+  padding: 5px 0;
   margin-bottom: 5px;
 }
 
-.sidebar-left a {
+.sidebar-left section a {
   display: block;
-  margin-bottom: 3px;
+  padding: 5px 0;
   text-decoration: none;
-  color: #0047ab;
+  color: var(--text-color);
 }
 
-/* Contenido central */
+.hide-on-mobile {
+  display: block;
+}
+
+/* =========================
+   CONTENIDO CENTRAL
+========================= */
 .content {
-  width: 55%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.block {
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
 .block h2 {
-  background: #eee;
-  padding: 5px 10px;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-/* Sidebar derecho */
-.sidebar-right {
-  width: 20%;
-}
-
-.sidebar-right .block h3 {
-  background: #eee;
-  padding: 5px 10px;
-  font-size: 16px;
+  background: var(--bg-gray);
   text-align: center;
-  margin-bottom: 5px;
+  padding: 5px 0;
+  color: var(--primary-color);
 }
 
-.sidebar-right .block ul li {
+.block ul {
   list-style: none;
+  padding: 5px 10px;
+}
+
+.block ul li {
   padding: 3px 0;
+  color: var(--text-color);
+}
+
+/* =========================
+   COLUMNA DERECHA
+========================= */
+.sidebar-right {
+  width: 220px;
+}
+
+.sidebar-right h3 {
+  background: var(--bg-gray);
+  text-align: center;
+  padding: 5px 0;
+  color: var(--primary-color);
+}
+
+.sidebar-right ul {
+  list-style: none;
+  padding: 5px 10px;
+}
+
+.sidebar-right ul li {
+  padding: 3px 0;
+  color: var(--text-color);
 }
 
 /* =========================
@@ -133,56 +157,54 @@ body {
 ========================= */
 .footer {
   text-align: center;
-  padding: 10px;
-  background: #fff;
+  padding: 10px 0;
   border-top: 1px solid #ccc;
-  margin-top: 20px;
+  background: #fff;
 }
 
 .footer a {
-  margin: 0 10px;
+  margin: 0 5px;
   text-decoration: none;
-  color: #0047ab;
+  color: var(--primary-color);
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE TABLET
 ========================= */
+@media (max-width: 992px) {
+  .container {
+    flex-wrap: wrap;
+  }
 
-/* Tablet: contenido central en 2 columnas */
-@media (min-width: 769px) and (max-width: 1024px) {
   .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+  }
+
+  .content .block {
+    flex: 1 1 calc(50% - 20px);
   }
 
   .sidebar-left,
   .sidebar-right {
-    width: 20%;
-  }
-
-  .container {
-    flex-wrap: nowrap;
+    width: 100%;
   }
 }
 
-/* Móvil: solo menú usuario, contenido en columna */
+/* =========================
+   RESPONSIVE MÓVIL
+========================= */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    padding: 10px;
   }
 
   .sidebar-left {
-    display: none; /* Nunca se muestra en móvil */
+    display: none !important;
   }
 
   .sidebar-right {
-    width: 100%;
-  }
-
-  .content {
     width: 100%;
   }
 
@@ -191,27 +213,30 @@ body {
   }
 
   .user-options {
-    display: none; /* Por defecto oculto */
-    flex-direction: column;
-    gap: 5px;
+    display: none;
     margin-top: 10px;
   }
 
   .user-options.show-menu {
-    display: flex;
+    display: block;
   }
 
-  /* Títulos Trabajo y Ciudades con cuadro gris */
-  .sidebar-right .block h3 {
-    background: #eee;
+  /* Trabajo y Ciudades solo título gris, texto normal */
+  .sidebar-right h3 {
+    background: var(--bg-gray);
     text-align: center;
-    font-weight: bold;
+    color: var(--primary-color);
   }
 
-  .sidebar-right .block ul li {
-    padding: 3px 0;
-    background: transparent;
-    color: #222;
+  .sidebar-right ul li {
+    background: none;
+    color: var(--text-color);
+  }
+
+  .block ul li {
+    background: none;
+    color: var(--text-color);
   }
 }
+
 
