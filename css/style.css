@@ -54,18 +54,20 @@ a {
 }
 
 /* =========================
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR PRINCIPAL (GRID)
 ========================= */
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* alineación horizontal al inicio */
+  display: grid;
+  grid-template-columns: 20% 55% 20%;
+  gap: 2%;
   padding: 20px;
+  align-items: start; /* para alinear arriba */
 }
 
 /* ---------- COLUMNA IZQUIERDA ---------- */
 .sidebar-left {
-  width: 20%;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-left input {
@@ -81,11 +83,30 @@ a {
   color: #0047ab;
 }
 
+/* ---------- CONTENIDO CENTRAL (GRID INTERNO) ---------- */
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PC: 3 columnas */
+  gap: 20px;
+}
+
+.block h2 {
+  background: #ddd;
+  color: #0047ab;
+  padding: 5px;
+  text-align: center;
+  width: 100%; /* todos los títulos del mismo ancho que el bloque */
+  box-sizing: border-box;
+}
+
+.block ul li {
+  padding: 3px 0;
+}
+
 /* ---------- COLUMNA DERECHA ---------- */
 .sidebar-right {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto;
   gap: 20px;
 }
 
@@ -94,86 +115,24 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
+  width: 100%; /* mismo ancho que bloque central */
+  box-sizing: border-box;
 }
 
 .right-block ul li {
   padding: 3px 0;
 }
 
-/* ---------- CONTENIDO CENTRAL ---------- */
-.content {
-  width: 55%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2%;
-  align-items: flex-start; /* asegura alineación con derecha */
-}
-
-.block {
-  /* Para bloques de contenido, altura mínima igual para filas */
-  min-height: 180px; /* ajusta según tu contenido */
-}
-
-.block h2 {
-  background: #ddd;
-  color: #0047ab;
-  padding: 5px;
-  text-align: center;
-}
-
-.block ul li {
-  padding: 3px 0;
-}
-
-/* -------------------
-   PC: organización bloques
--------------------- */
-@media (min-width: 1025px) {
-  /* Fila 1: Comunidad + Vivienda + Servicios */
-  .block:nth-child(1),
-  .block:nth-child(2),
-  .block:nth-child(3) {
-    width: 32%;
-  }
-
-  /* Fila 2: Se vende + Foros de debate */
-  .block:nth-child(4),
-  .block:nth-child(5) {
-    width: 48%;
-  }
-}
-
 /* =========================
    TABLET (769px a 1024px)
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .sidebar-left,
-  .sidebar-right {
-    width: 20%;
-  }
-
   .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
-    align-items: flex-start;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas central */
   }
 
-  /* Fila 1: Comunidad + Vivienda */
-  .block:nth-child(1),
-  .block:nth-child(2) {
-    width: 48%;
-  }
-
-  /* Fila 2: Servicios + Se vende */
-  .block:nth-child(3),
-  .block:nth-child(4) {
-    width: 48%;
-  }
-
-  /* Fila 3: Foros de debate */
   .block:nth-child(5) {
-    width: 100%;
+    grid-column: 1 / -1; /* foro de debate ocupa todo ancho */
   }
 }
 
@@ -182,6 +141,7 @@ a {
 ========================= */
 @media (max-width: 768px) {
   .container {
+    display: flex;
     flex-direction: column;
   }
 
@@ -196,6 +156,7 @@ a {
 
   .content {
     width: 100%;
+    display: flex;
     flex-direction: column;
     gap: 0;
   }
@@ -241,3 +202,5 @@ a {
     color: #0047ab;
   }
 }
+
+
