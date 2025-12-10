@@ -248,7 +248,7 @@ body {
    MEDIA QUERIES
 ========================= */
 
-/* Tablet */
+/* Tablet y dispositivos grandes (iPad, etc.) */
 @media (max-width: 1024px) {
   .container {
     flex-direction: row;
@@ -265,9 +265,12 @@ body {
   }
 
   /* Sidebar derecha sin color en tablet */
-  .sidebar-right section {
+  .sidebar-right section,
+  .sidebar-right h3 {
     background: transparent;
     padding: 0;
+    margin-bottom: 15px;
+    text-align: left;
   }
 
   /* Mostrar hamburguesa */
@@ -280,7 +283,7 @@ body {
   }
 }
 
-/* Móvil */
+/* Móvil y dispositivos pequeños (iPhone XR, etc.) */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -300,9 +303,12 @@ body {
   }
 
   /* Sidebar derecha sin color en móvil */
-  .sidebar-right section {
+  .sidebar-right section,
+  .sidebar-right h3 {
     background: transparent;
     padding: 0;
+    margin-bottom: 15px;
+    text-align: left;
   }
 
   /* Encabezado: barra hamburguesa */
@@ -312,5 +318,16 @@ body {
 
   .user-options {
     display: none;
+  }
+}
+
+/* Extra específico para iPhone XR y otros móviles grandes */
+@media (max-width: 414px) {
+  .container {
+    padding: 5px;
+  }
+
+  .block {
+    flex: 1 1 100%;
   }
 }
