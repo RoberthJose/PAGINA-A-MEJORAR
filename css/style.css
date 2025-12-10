@@ -62,6 +62,7 @@ a {
   gap: 2%;
   padding: 20px;
   align-items: start; /* alinear arriba */
+  grid-auto-rows: minmax(auto, auto); /* filas se ajustan a contenido más alto */
 }
 
 /* ---------- COLUMNA IZQUIERDA ---------- */
@@ -83,14 +84,14 @@ a {
   color: #0047ab;
 }
 
-/* ---------- CONTENIDO CENTRAL (GRID INTERNO) ---------- */
+/* ---------- CONTENIDO CENTRAL ---------- */
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* PC: 3 columnas */
   gap: 20px;
 }
 
-/* Hacer que todos los bloques tengan igual altura en su fila */
+/* Hacer que todos los bloques tengan igual altura por fila */
 .block {
   display: flex;
   flex-direction: column;
@@ -101,7 +102,7 @@ a {
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  width: 100%; /* mismo ancho que bloque */
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -109,10 +110,11 @@ a {
   padding: 3px 0;
 }
 
-/* ---------- COLUMNA DERECHA (altura igual a central) ---------- */
+/* -------------------
+   COLUMNA DERECHA (Trabajo + Ciudades)
+-------------------- */
 .sidebar-right {
   display: grid;
-  grid-template-rows: 1fr 1fr; /* cada bloque igual de alto */
   gap: 20px;
 }
 
@@ -126,7 +128,7 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
-  width: 100%; /* mismo ancho que central */
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -135,15 +137,59 @@ a {
 }
 
 /* =========================
+   PC: organización filas
+========================= */
+@media (min-width: 1025px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Fila 1: Comunidad + Vivienda + Servicios */
+  .block:nth-child(1),
+  .block:nth-child(2),
+  .block:nth-child(3) {
+    width: 100%;
+  }
+
+  /* Fila 2: Se vende + Foros de debate */
+  .block:nth-child(4),
+  .block:nth-child(5) {
+    width: 100%;
+  }
+
+  .sidebar-right {
+    grid-template-rows: repeat(2, 1fr); /* dos bloques igual altura */
+  }
+}
+
+/* =========================
    TABLET (769px a 1024px)
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
   .content {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas central */
+    gap: 20px;
   }
 
+  /* Fila 1: Comunidad + Vivienda */
+  .block:nth-child(1),
+  .block:nth-child(2) {
+    width: 100%;
+  }
+
+  /* Fila 2: Servicios + Se vende */
+  .block:nth-child(3),
+  .block:nth-child(4) {
+    width: 100%;
+  }
+
+  /* Fila 3: Foros de debate */
   .block:nth-child(5) {
-    grid-column: 1 / -1; /* Foro de debate ocupa todo ancho */
+    grid-column: 1 / -1;
+  }
+
+  .sidebar-right {
+    grid-template-rows: repeat(2, auto);
   }
 }
 
@@ -213,6 +259,3 @@ a {
     color: #0047ab;
   }
 }
-
-
-
