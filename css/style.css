@@ -162,7 +162,7 @@ body {
 
 .sidebar-right section {
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 8px;
   background: var(--bg-title);
 }
 
@@ -275,19 +275,14 @@ body {
     flex: 1 1 calc(50% - 16px);
   }
 
-  /* Mantener cuadrito en títulos derecho */
   .sidebar-right section {
     background: var(--bg-title);
-    padding: 5px;
-    margin-bottom: 15px;
-    text-align: center;
   }
 
   .sidebar-right h3 {
     text-align: center;
   }
 
-  /* Mostrar hamburguesa */
   .menu-toggle {
     display: block;
   }
@@ -313,41 +308,55 @@ body {
     margin-bottom: 15px;
   }
 
-  /* Ocultar secciones izquierda */
+  /* Ocultar secciones de la izquierda en todos los móviles */
   .sidebar-left .hide-on-mobile {
     display: none;
   }
 
-  /* Sidebar derecho: título centrado y fondo gris, lista sin fondo ni color */
+  /* Sidebar derecho: Títulos con cuadrito gris, texto sin color */
   .sidebar-right section {
-    background: var(--bg-title);
-    padding: 5px;
+    background: transparent;
+    padding: 0;
     margin-bottom: 15px;
-    text-align: center;
+    text-align: left;
   }
 
   .sidebar-right h3 {
+    background: var(--bg-title);
     text-align: center;
+    padding: 8px;
+    margin-bottom: 6px;
   }
 
   .sidebar-right li {
-    color: #000; /* texto normal */
-    background: transparent;
-    display: block;
-    width: fit-content;
-    margin: 3px auto; /* centrar un poco */
+    color: #000;
   }
 
   .block {
     flex: 1 1 100%;
   }
 
+  /* Hamburguesa visible */
   .menu-toggle {
     display: block;
   }
 
   .user-options {
     display: none;
+  }
+
+  /* =========================
+     MENU HAMBURGUESA
+  ========================== */
+  .sidebar-left,
+  .user-options {
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-left.show-menu,
+  .user-options.show-menu {
+    display: block;
   }
 }
 
@@ -367,3 +376,5 @@ body {
     flex: 1 1 100%;
   }
 }
+
+
