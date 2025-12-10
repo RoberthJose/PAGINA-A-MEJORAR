@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   HEADER (BARRA NEGRA)
+   HEADER
 ========================= */
 .header {
   display: flex;
@@ -162,14 +162,15 @@ body {
 
 .sidebar-right section {
   margin-bottom: 15px;
-  padding: 8px;
-  background: var(--bg-title);
+  padding: 0;
 }
 
 .sidebar-right h3 {
   font-size: 14px;
   text-align: center;
   margin-bottom: 6px;
+  background: var(--bg-title);
+  padding: 8px;
 }
 
 .sidebar-right ul {
@@ -275,12 +276,9 @@ body {
     flex: 1 1 calc(50% - 16px);
   }
 
-  .sidebar-right section {
-    background: var(--bg-title);
-  }
-
   .sidebar-right h3 {
-    text-align: center;
+    background: var(--bg-title);
+    padding: 8px;
   }
 
   .menu-toggle {
@@ -302,61 +300,29 @@ body {
   }
 
   .sidebar-left,
-  .sidebar-right,
-  .content {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  /* Ocultar secciones de la izquierda en todos los móviles */
-  .sidebar-left .hide-on-mobile {
-    display: none;
-  }
-
-  /* Sidebar derecho: Títulos con cuadrito gris, texto sin color */
-  .sidebar-right section {
-    background: transparent;
-    padding: 0;
-    margin-bottom: 15px;
-    text-align: left;
-  }
-
-  .sidebar-right h3 {
-    background: var(--bg-title);
-    text-align: center;
-    padding: 8px;
-    margin-bottom: 6px;
-  }
-
-  .sidebar-right li {
-    color: #000;
-  }
-
-  .block {
-    flex: 1 1 100%;
-  }
-
-  /* Hamburguesa visible */
-  .menu-toggle {
-    display: block;
-  }
-
   .user-options {
     display: none;
-  }
-
-  /* =========================
-     MENU HAMBURGUESA
-  ========================== */
-  .sidebar-left,
-  .user-options {
-    display: none;
-    transition: all 0.3s ease;
   }
 
   .sidebar-left.show-menu,
   .user-options.show-menu {
     display: block;
+  }
+
+  .sidebar-right {
+    width: 100%;
+    border-left: none;
+    padding: 0;
+  }
+
+  .sidebar-right h3 {
+    background: var(--bg-title);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .block {
+    flex: 1 1 100%;
   }
 }
 
@@ -376,5 +342,3 @@ body {
     flex: 1 1 100%;
   }
 }
-
-
