@@ -1,4 +1,4 @@
-/* =========================
+//* =========================
    RESET Y ESTILOS GENERALES
 ========================= */
 * {
@@ -101,11 +101,7 @@ a {
   width: 55%;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-}
-
-.block {
-  width: 100%;
+  gap: 2%;
 }
 
 .block h2 {
@@ -119,40 +115,54 @@ a {
   padding: 3px 0;
 }
 
-/* =========================
-   PIE DE PÁGINA
-========================= */
-.footer {
-  padding: 15px 20px;
-  background: #fff;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+/* -------------------
+   PC: organización bloques
+-------------------- */
+@media (min-width: 1025px) {
+  /* Fila 1: Comunidad + Vivienda + Servicios */
+  .block:nth-child(1),
+  .block:nth-child(2),
+  .block:nth-child(3) {
+    width: 32%;
+  }
+
+  /* Fila 2: Se vende + Foros de debate */
+  .block:nth-child(4),
+  .block:nth-child(5) {
+    width: 48%;
+  }
 }
 
-.footer a {
-  margin-right: 10px;
-  color: #0047ab;
-}
-
 /* =========================
-   TABLET (768px a 1024px)
+   TABLET (769px a 1024px)
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .block {
-    width: 48%; /* dos columnas */
-  }
-
   .sidebar-left,
   .sidebar-right {
     width: 20%;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+  }
+
+  /* Fila 1: Comunidad + Vivienda */
+  .block:nth-child(1),
+  .block:nth-child(2) {
+    width: 48%;
+  }
+
+  /* Fila 2: Servicios + Se vende */
+  .block:nth-child(3),
+  .block:nth-child(4) {
+    width: 48%;
+  }
+
+  /* Fila 3: Foros de debate */
+  .block:nth-child(5) {
+    width: 100%;
   }
 }
 
@@ -176,6 +186,7 @@ a {
   .content {
     width: 100%;
     flex-direction: column;
+    gap: 0;
   }
 
   .block {
