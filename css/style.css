@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   HEADER
+   HEADER (BARRA NEGRA)
 ========================= */
 .header {
   display: flex;
@@ -162,21 +162,18 @@ body {
 
 .sidebar-right section {
   margin-bottom: 15px;
+  padding: 5px;
+  background: var(--bg-title);
 }
 
 .sidebar-right h3 {
   font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 6px;
   text-align: center;
-  background: var(--bg-title);
-  padding: 8px;
+  margin-bottom: 6px;
 }
 
 .sidebar-right ul {
   list-style: none;
-  margin-top: 5px;
-  padding: 0;
 }
 
 .sidebar-right li {
@@ -189,7 +186,7 @@ body {
 }
 
 /* =========================
-   EFECTO HOVER
+   EFECTO HOVER (RAYITA)
 ========================= */
 .block li::after,
 .sidebar-left a::after,
@@ -243,61 +240,20 @@ body {
 }
 
 /* =========================
-   OCULTAR SECCIONES IZQUIERDA EN MÓVIL
+   OCULTAR SECCIONES EN MÓVIL
 ========================= */
 .hide-on-mobile {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .sidebar-left .hide-on-mobile {
-    display: none; /* agenda, ayuda, info ocultas en todos móviles */
-  }
-
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .sidebar-left,
-  .sidebar-right,
-  .content {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .block {
-    flex: 1 1 100%;
-  }
-
-  /* Mantener títulos centrados con cuadrito gris en móvil */
-  .block h2,
-  .sidebar-right h3 {
-    background: var(--bg-title);
-    text-align: center;
-    padding: 8px;
-  }
-
-  /* Listas sin fondo gris en móvil */
-  .block ul,
-  .sidebar-right ul {
-    background: transparent;
-    padding: 0;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .user-options {
-    display: none;
-  }
-}
+/* =========================
+   MEDIA QUERIES
+========================= */
 
 /* -------------------------
    Tablet / iPad Air
 ------------------------- */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px) {
   .container {
     flex-wrap: wrap;
     gap: 16px;
@@ -319,12 +275,71 @@ body {
     flex: 1 1 calc(50% - 16px);
   }
 
-  /* Títulos centrados con cuadrito gris en tablet */
-  .block h2,
-  .sidebar-right h3 {
+  /* Mantener cuadrito en títulos derecho */
+  .sidebar-right section {
     background: var(--bg-title);
+    padding: 5px;
+    margin-bottom: 15px;
     text-align: center;
-    padding: 8px;
+  }
+
+  .sidebar-right h3 {
+    text-align: center;
+  }
+
+  /* Mostrar hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
+    display: none;
+  }
+}
+
+/* -------------------------
+   Móvil / iPhone XR
+------------------------- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar-left,
+  .sidebar-right,
+  .content {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Ocultar secciones izquierda */
+  .sidebar-left .hide-on-mobile {
+    display: none;
+  }
+
+  /* Sidebar derecho: título centrado y fondo gris, lista sin fondo ni color */
+  .sidebar-right section {
+    background: var(--bg-title);
+    padding: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .sidebar-right h3 {
+    text-align: center;
+  }
+
+  .sidebar-right li {
+    color: #000; /* texto normal */
+    background: transparent;
+    display: block;
+    width: fit-content;
+    margin: 3px auto; /* centrar un poco */
+  }
+
+  .block {
+    flex: 1 1 100%;
   }
 
   .menu-toggle {
@@ -336,4 +351,19 @@ body {
   }
 }
 
+/* -------------------------
+   Extra para móviles muy pequeños
+------------------------- */
+@media (max-width: 414px) {
+  .container {
+    padding: 5px;
+  }
 
+  .sidebar-right li {
+    margin-bottom: 4px;
+  }
+
+  .block {
+    flex: 1 1 100%;
+  }
+}
