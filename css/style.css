@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   HEADER (BARRA NEGRA)
+   HEADER
 ========================= */
 .header {
   display: flex;
@@ -162,18 +162,21 @@ body {
 
 .sidebar-right section {
   margin-bottom: 15px;
-  padding: 5px;
-  background: var(--bg-title); /* color en PC y tablet */
 }
 
 .sidebar-right h3 {
   font-size: 14px;
-  text-align: center; /* Títulos centrados */
+  font-weight: bold;
   margin-bottom: 6px;
+  text-align: center;
+  background: var(--bg-title);
+  padding: 8px;
 }
 
 .sidebar-right ul {
   list-style: none;
+  margin-top: 5px;
+  padding: 0;
 }
 
 .sidebar-right li {
@@ -186,7 +189,7 @@ body {
 }
 
 /* =========================
-   EFECTO HOVER (RAYITA)
+   EFECTO HOVER
 ========================= */
 .block li::after,
 .sidebar-left a::after,
@@ -240,20 +243,61 @@ body {
 }
 
 /* =========================
-   OCULTAR SECCIONES EN MÓVIL
+   OCULTAR SECCIONES IZQUIERDA EN MÓVIL
 ========================= */
 .hide-on-mobile {
   display: block;
 }
 
-/* =========================
-   MEDIA QUERIES
-========================= */
+@media (max-width: 768px) {
+  .sidebar-left .hide-on-mobile {
+    display: none; /* agenda, ayuda, info ocultas en todos móviles */
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar-left,
+  .sidebar-right,
+  .content {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .block {
+    flex: 1 1 100%;
+  }
+
+  /* Mantener títulos centrados con cuadrito gris en móvil */
+  .block h2,
+  .sidebar-right h3 {
+    background: var(--bg-title);
+    text-align: center;
+    padding: 8px;
+  }
+
+  /* Listas sin fondo gris en móvil */
+  .block ul,
+  .sidebar-right ul {
+    background: transparent;
+    padding: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
+    display: none;
+  }
+}
 
 /* -------------------------
    Tablet / iPad Air
 ------------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .container {
     flex-wrap: wrap;
     gap: 16px;
@@ -275,12 +319,12 @@ body {
     flex: 1 1 calc(50% - 16px);
   }
 
-  /* Sidebar derecho: mantener cuadrito en tablet */
-  .sidebar-right section {
+  /* Títulos centrados con cuadrito gris en tablet */
+  .block h2,
+  .sidebar-right h3 {
     background: var(--bg-title);
-    padding: 5px;
-    margin-bottom: 15px;
     text-align: center;
+    padding: 8px;
   }
 
   .menu-toggle {
@@ -292,68 +336,4 @@ body {
   }
 }
 
-/* -------------------------
-   Móvil / iPhone XR y todos los móviles
-------------------------- */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .sidebar-left,
-  .sidebar-right,
-  .content {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  /* Ocultar secciones específicas en todos los móviles */
-  .sidebar-left .hide-on-mobile {
-    display: none;
-  }
-
-  /* Sidebar derecho: quitar borde y fondo general */
-  .sidebar-right {
-    border-left: none;
-    background: transparent;
-    padding: 0;
-  }
-
-  .sidebar-right section {
-    background: var(--bg-title); /* mantener cuadrito gris solo en PC y tablet */
-    padding: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .block {
-    flex: 1 1 100%;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .user-options {
-    display: none;
-  }
-}
-
-/* -------------------------
-   Extra para móviles muy pequeños
-------------------------- */
-@media (max-width: 414px) {
-  .container {
-    padding: 5px;
-  }
-
-  .sidebar-right li {
-    margin-bottom: 4px;
-  }
-
-  .block {
-    flex: 1 1 100%;
-  }
-}
 
