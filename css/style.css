@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   HEADER
+   HEADER (BARRA NEGRA)
 ========================= */
 .header {
   display: flex;
@@ -162,15 +162,14 @@ body {
 
 .sidebar-right section {
   margin-bottom: 15px;
-  padding: 0;
+  background: var(--bg-title);
+  padding: 5px;
 }
 
 .sidebar-right h3 {
   font-size: 14px;
   text-align: center;
   margin-bottom: 6px;
-  background: var(--bg-title);
-  padding: 8px;
 }
 
 .sidebar-right ul {
@@ -260,25 +259,34 @@ body {
     gap: 16px;
   }
 
-  .sidebar-left,
-  .sidebar-right {
-    width: 48%;
+  .sidebar-left {
+    display: block;
+    width: 200px;
   }
 
   .content {
-    width: 100%;
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
   }
 
   .block {
-    flex: 1 1 calc(50% - 16px);
+    flex: 1 1 calc(50% - 16px); /* dos columnas */
+  }
+
+  .sidebar-right {
+    width: 200px;
+  }
+
+  .sidebar-right section {
+    background: var(--bg-title);
+    padding: 5px;
+    text-align: center;
   }
 
   .sidebar-right h3 {
-    background: var(--bg-title);
-    padding: 8px;
+    margin-bottom: 6px;
   }
 
   .menu-toggle {
@@ -300,29 +308,43 @@ body {
   }
 
   .sidebar-left,
-  .user-options {
-    display: none;
-  }
-
-  .sidebar-left.show-menu,
-  .user-options.show-menu {
-    display: block;
-  }
-
+  .content,
   .sidebar-right {
     width: 100%;
-    border-left: none;
-    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  /* Ocultar secciones de izquierda siempre */
+  .sidebar-left section {
+    display: none !important;
+  }
+
+  /* Sidebar derecho: solo títulos con gris */
+  .sidebar-right section {
+    background: var(--bg-title);
+    padding: 5px;
   }
 
   .sidebar-right h3 {
-    background: var(--bg-title);
     text-align: center;
     margin-bottom: 6px;
   }
 
+  .sidebar-right li {
+    color: var(--color-link); /* texto sin gris */
+  }
+
   .block {
     flex: 1 1 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
+    display: flex;
+    gap: 12px;
   }
 }
 
@@ -340,5 +362,21 @@ body {
 
   .block {
     flex: 1 1 100%;
+  }
+}
+
+/* =========================
+   MENU HAMBURGUESA MÓVIL
+========================= */
+@media (max-width: 768px) {
+  .sidebar-left,
+  .user-options {
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-left.show-menu,
+  .user-options.show-menu {
+    display: block;
   }
 }
