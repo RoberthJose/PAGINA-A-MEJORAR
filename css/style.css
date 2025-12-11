@@ -164,7 +164,7 @@ footer a {
   .block:nth-child(5) { grid-column: 2; }
   .block:nth-child(6) { grid-column: 3; }
 
-  /* Foro de debate (7) a la derecha, fuera de la segunda fila */
+  /* Foro de debate (7) a la derecha, bajo se vende/ciudades si quieres */
   .block:nth-child(7) { grid-column: 3; }
 }
 
@@ -191,8 +191,8 @@ footer a {
   .block:nth-child(5) { grid-column: 1; }
   .block:nth-child(6) { grid-column: 2; }
 
-  /* Foro de debate debajo de se vende (centro o derecha) */
-  .block:nth-child(7) { grid-column: span 2; justify-self: center; width: 70%; }
+  /* Foro de debate debajo de se vende, alineado con servicios (izquierda) */
+  .block:nth-child(7) { grid-column: 2; margin-top: 10px; }
 }
 
 /* ============================================================
