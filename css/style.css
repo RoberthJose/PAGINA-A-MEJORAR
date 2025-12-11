@@ -35,9 +35,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 20px;
 }
 
-.location strong {
-  color: #222;
-}
+.location strong { color: #222; }
 
 .menu-toggle {
   display: none;
@@ -55,11 +53,11 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .container {
   display: grid;
-  grid-template-columns: 18% 64% 18%; /* ⭐ MÁS ANCHO REAL, SIN HUECOS */
+  grid-template-columns: 18% 64% 18%;
   gap: 2%;
   padding: 20px;
   width: 100%;
-  max-width: 1400px; /* ⭐ MÁS ANCHO PARA OCUPAR TODO */
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -93,7 +91,7 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ⭐ CUADROS ANCHOS Y PAREJOS */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -111,9 +109,7 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
 }
 
-.block ul li {
-  padding: 2px 0;
-}
+.block ul li { padding: 2px 0; }
 
 /* =========================
    COLUMNA DERECHA
@@ -150,7 +146,7 @@ footer a {
 }
 
 /* ============================================================
-   RESPONSIVE PC (orden exacto de bloques)
+   RESPONSIVE PC – ORDEN CORREGIDO
 =============================================================== */
 @media (min-width: 1025px) {
 
@@ -158,28 +154,39 @@ footer a {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* ciudades centrado abajo */
+  /* ============================================
+     ORDEN REAL:
+      1 Comunidad
+      2 Vivienda
+      3 Trabajo
+      4 Servicios
+      5 Se vende
+      6 FOROS / Debate → derecha
+      7 Ciudades → centro abajo
+  ============================================= */
+
+  /* FOROS = columna 3 */
   .block:nth-child(6) {
-    grid-column: 2;
+    grid-column: 3;
   }
 
-  /* foros alineado en columna derecha */
+  /* CIUDADES = debajo de Trabajo, al centro */
   .block:nth-child(7) {
-    grid-column: 3;
+    grid-column: 2;
   }
 }
 
 /* ============================================================
-   RESPONSIVE TABLET
+   RESPONSIVE TABLET – ORDEN CORREGIDO
 =============================================================== */
 @media (max-width: 1024px) and (min-width: 769px) {
 
   .sidebar-left {
-    display: block; /* ⭐ vuelve a APARECER EN TABLET */
+    display: block;
   }
 
   .container {
-    grid-template-columns: 30% 70%; /* ⭐ SIN HUECO A DERECHA */
+    grid-template-columns: 30% 70%;
     width: 100%;
   }
 
@@ -187,16 +194,19 @@ footer a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* CIUDADES centrado abajo en tablet */
+  /* FOROS (6) DEBAJO DE SE VENDE (5) */
   .block:nth-child(6) {
-    grid-column: span 2;
-    justify-self: center;
-    width: 70%;
+    grid-column: 2;
+  }
+
+  /* CIUDADES (7) debajo de Servicios (4) */
+  .block:nth-child(7) {
+    grid-column: 2;
   }
 }
 
 /* ============================================================
-   RESPONSIVE MÓVIL
+   RESPONSIVE MÓVIL – TODO IGUAL
 =============================================================== */
 @media (max-width: 768px) {
 
