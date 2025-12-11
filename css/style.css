@@ -14,7 +14,7 @@ body {
 }
 
 ul {
-  list-style: none; /* quitar puntitos */
+  list-style: none;
 }
 
 a {
@@ -35,7 +35,7 @@ a {
 }
 
 .logo h1 {
-  color: #0047ab; /* azul títulos */
+  color: #0047ab;
 }
 
 .location strong {
@@ -58,8 +58,8 @@ a {
 ========================= */
 .container {
   display: grid;
-  grid-template-columns: 20% 55% 20%;
-  gap: 2%;
+  grid-template-columns: 20% 1fr 20%;
+  gap: 20px;
   padding: 20px;
   align-items: start;
 }
@@ -77,87 +77,87 @@ a {
 }
 
 .sidebar-left section h3 {
-  background: #ddd; /* gris para títulos */
-  padding: 10px; /* altura uniforme */
+  background: #ddd;
+  padding: 5px;
   text-align: center;
   color: #0047ab;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-/* ---------- CONTENIDO CENTRAL (GRID INTERNO) ---------- */
+/* =========================
+   CONTENIDO CENTRAL
+========================= */
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* PC: 3 columnas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .block {
   display: flex;
   flex-direction: column;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .block h2 {
   background: #ddd;
   color: #0047ab;
-  padding: 10px; /* altura uniforme */
+  padding: 5px;
   text-align: center;
-  width: 100%; /* cuadro título ocupa todo el ancho del bloque */
-  box-sizing: border-box;
+  min-height: 40px; /* misma altura para todos los títulos */
 }
 
 .block ul li {
-  padding: 3px 0;
+  padding: 3px 5px;
 }
 
-/* ---------- COLUMNA DERECHA (Trabajo + Ciudades) ---------- */
+/* =========================
+   COLUMNA DERECHA
+========================= */
 .sidebar-right {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 .right-block {
   display: flex;
   flex-direction: column;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .right-block h3 {
   background: #ddd;
-  padding: 10px; /* misma altura que títulos centrales */
-  text-align: center;
   color: #0047ab;
-  width: 100%; /* cuadro título ocupa todo el ancho del bloque */
-  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+  min-height: 40px; /* misma altura que los títulos centrales */
 }
 
 .right-block ul li {
-  padding: 3px 0;
+  padding: 3px 5px;
 }
 
 /* =========================
-   PC: filas alineadas
+   PC (>=1025px)
 ========================= */
 @media (min-width: 1025px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Igualar altura de bloques de la fila 1 */
-  .block:nth-child(1),
-  .block:nth-child(2),
-  .block:nth-child(3) {
-    width: 100%;
+  /* Bloques de la fila 1 y fila 2 se alinean en altura */
+  .content, .sidebar-right {
+    display: flex;
+    gap: 20px;
   }
 
-  /* Igualar altura de bloques de la fila 2 */
-  .block:nth-child(4),
-  .block:nth-child(5) {
-    width: 100%;
-  }
-
-  /* Ajustar derecha para que coincida con altura de cada fila */
-  .sidebar-right {
-    grid-template-rows: repeat(2, 1fr);
+  .content > .block,
+  .sidebar-right > .right-block {
+    flex: 1;
   }
 }
 
@@ -170,26 +170,14 @@ a {
     gap: 20px;
   }
 
-  /* Fila 1: Comunidad + Vivienda */
-  .block:nth-child(1),
-  .block:nth-child(2) {
-    width: 100%;
+  .content > .block,
+  .sidebar-right > .right-block {
+    flex: 1;
   }
 
-  /* Fila 2: Servicios + Se vende */
-  .block:nth-child(3),
-  .block:nth-child(4) {
-    width: 100%;
-  }
-
-  /* Fila 3: Foros de debate */
-  .block:nth-child(5) {
-    grid-column: 1 / -1;
-  }
-
-  /* Mantener derecha con bloques igual altura */
-  .sidebar-right {
-    grid-template-rows: repeat(2, 1fr);
+  .block h2,
+  .right-block h3 {
+    min-height: 40px;
   }
 }
 
@@ -203,43 +191,30 @@ a {
   }
 
   .sidebar-left {
-    display: none; /* columna izquierda oculta */
+    display: none;
   }
 
   .sidebar-right {
     width: 100%;
-    order: 99; /* debajo del contenido central */
+    order: 99;
   }
 
   .content {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 15px;
   }
 
-  .block {
-    background: #fff; /* cuadro blanco */
-    padding: 10px;
+  .block, .right-block {
+    width: 100%;
     margin-bottom: 15px;
+  }
+
+  .block, .right-block {
+    padding: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
-  .right-block {
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-
-  .right-block h3 {
-    background: #ddd;
-    color: #0047ab;
-    text-align: center;
-    padding: 10px; /* altura uniforme también en móvil */
-  }
-
-  /* HAMBURGUESA */
   .menu-toggle {
     display: block;
   }
