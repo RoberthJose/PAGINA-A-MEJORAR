@@ -249,22 +249,22 @@ footer a {
 .block ul li {
   position: relative;
   cursor: pointer;
-  display: inline-block; /* necesario para que el subrayado funcione */
+  display: inline-block; /* Asegura que la línea se ajuste al texto */
+  padding-bottom: 2px; /* espacio para la línea */
 }
 
 .block ul li::after {
   content: "";
   position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
   background-color: #0047ab; /* color de la línea */
-  transition: width 0.3s;
+  transition: width 0.3s ease-in-out;
 }
 
 .block ul li:hover::after {
   width: 100%;
 }
-
 
