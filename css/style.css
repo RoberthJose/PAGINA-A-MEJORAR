@@ -78,9 +78,11 @@ a {
 
 .sidebar-left section h3 {
   background: #ddd; /* gris para títulos */
-  padding: 5px;
+  padding: 10px; /* altura uniforme */
   text-align: center;
   color: #0047ab;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ---------- CONTENIDO CENTRAL (GRID INTERNO) ---------- */
@@ -98,7 +100,7 @@ a {
 .block h2 {
   background: #ddd;
   color: #0047ab;
-  padding: 5px;
+  padding: 10px; /* altura uniforme */
   text-align: center;
   width: 100%; /* cuadro título ocupa todo el ancho del bloque */
   box-sizing: border-box;
@@ -121,7 +123,7 @@ a {
 
 .right-block h3 {
   background: #ddd;
-  padding: 5px;
+  padding: 10px; /* misma altura que títulos centrales */
   text-align: center;
   color: #0047ab;
   width: 100%; /* cuadro título ocupa todo el ancho del bloque */
@@ -155,7 +157,7 @@ a {
 
   /* Ajustar derecha para que coincida con altura de cada fila */
   .sidebar-right {
-    grid-template-rows: repeat(2, 1fr); /* dos bloques igual altura */
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
@@ -164,7 +166,7 @@ a {
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
   .content {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas central */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
@@ -234,6 +236,7 @@ a {
     background: #ddd;
     color: #0047ab;
     text-align: center;
+    padding: 10px; /* altura uniforme también en móvil */
   }
 
   /* HAMBURGUESA */
