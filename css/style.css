@@ -243,3 +243,28 @@ footer a {
     grid-row: 4;              /* fila debajo de se vende */
   }
 }
+/* =========================
+   EFECTO SUBRAYADO ANIMADO EN TEXTOS DE BLOQUES
+========================= */
+.block ul li {
+  position: relative;
+  cursor: pointer;
+  display: inline-block; /* necesario para que el subrayado funcione */
+}
+
+.block ul li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0047ab; /* color de la línea */
+  transition: width 0.3s;
+}
+
+.block ul li:hover::after {
+  width: 100%;
+}
+
+
