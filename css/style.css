@@ -5,12 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   background: #fafafa;
   color: #222;
-  font-family: 'Times New Roman', serif;
+  font-size: 14px; /* texto general más legible */
 }
 
 ul {
@@ -21,6 +22,8 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  font-size: 14px; /* links legibles */
+  font-family: 'Times New Roman', serif;
 }
 
 /* =========================
@@ -38,6 +41,7 @@ a {
 .logo h1 {
   color: #0047ab;
   font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
 }
 
 .location strong {
@@ -53,6 +57,7 @@ a {
 .user-options a {
   margin-left: 10px;
   color: #0047ab;
+  font-size: 14px;
 }
 
 /* =========================
@@ -76,6 +81,7 @@ a {
   width: 100%;
   padding: 5px;
   margin-bottom: 15px;
+  font-size: 14px;
 }
 
 .sidebar-left section h3 {
@@ -83,18 +89,17 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  min-height: 40px;
   margin-bottom: 5px;
 }
 
 .sidebar-left section a {
   display: block;
   padding: 3px 0;
-  font-size: 12px;
+  margin-left: 5px;
+  font-size: 14px;
   font-family: 'Times New Roman', serif;
-  color: #222;
 }
 
 /* =========================
@@ -109,7 +114,7 @@ a {
 .block {
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background: transparent; /* solo título con cuadro */
 }
 
 .block h2 {
@@ -118,16 +123,16 @@ a {
   padding: 5px;
   text-align: center;
   min-height: 40px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 5px;
 }
 
 .block ul li {
   padding: 3px 0;
-  font-size: 12px;
-  font-family: 'Times New Roman', serif;
   background: transparent;
+  font-size: 14px;
+  font-family: 'Times New Roman', serif;
 }
 
 /* --------------------
@@ -150,16 +155,16 @@ a {
   text-align: center;
   padding: 5px;
   min-height: 40px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 5px;
 }
 
 .right-block ul li {
   padding: 3px 0;
-  font-size: 12px;
-  font-family: 'Times New Roman', serif;
   background: transparent;
+  font-size: 14px;
+  font-family: 'Times New Roman', serif;
 }
 
 /* =========================
@@ -233,14 +238,15 @@ a {
     text-align: center;
     padding: 5px;
     min-height: 40px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 5px;
   }
 
-  .sidebar-left section a {
-    padding: 5px 0;
-    font-size: 12px;
+  .block ul li,
+  .right-block ul li {
+    font-size: 14px;
+    font-family: 'Times New Roman', serif;
   }
 
   /* HAMBURGUESA */
@@ -262,7 +268,10 @@ a {
     padding: 8px 0;
     border-bottom: 1px solid #ddd;
     color: #0047ab;
+    font-size: 14px;
+    font-family: 'Times New Roman', serif;
   }
 }
+
 
 
