@@ -55,17 +55,11 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .container {
   display: grid;
-
-  /* ⭐ ANTES: 20% 55% 20% → generaba hueco a la derecha
-     ⭐ AHORA: columnas más amplias y sin espacio perdido */
-  grid-template-columns: 18% 60% 18%;
-
+  grid-template-columns: 18% 64% 18%; /* ⭐ MÁS ANCHO REAL, SIN HUECOS */
   gap: 2%;
   padding: 20px;
-
-  /* ⭐ Para que nunca deje espacio sobrante */
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px; /* ⭐ MÁS ANCHO PARA OCUPAR TODO */
   margin: 0 auto;
 }
 
@@ -99,18 +93,8 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .content {
   display: grid;
-
-  /* ⭐ Para usar más ancho de columna central */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, 1fr); /* ⭐ CUADROS ANCHOS Y PAREJOS */
   gap: 20px;
-  align-items: stretch;
-}
-
-.block {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .block h2 {
@@ -121,15 +105,10 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 6px;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
-
   min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.block ul {
-  flex: 1;
 }
 
 .block ul li {
@@ -147,7 +126,6 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 6px;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
-
   min-height: 42px;
   display: flex;
   align-items: center;
@@ -155,7 +133,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================
-   FOOTER CENTRADO
+   FOOTER
 ========================= */
 footer {
   text-align: center;
@@ -172,19 +150,21 @@ footer a {
 }
 
 /* ============================================================
-   RESPONSIVE PC
+   RESPONSIVE PC (orden exacto de bloques)
 =============================================================== */
 @media (min-width: 1025px) {
 
   .content {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .block:nth-child(7) {
+  /* ciudades centrado abajo */
+  .block:nth-child(6) {
     grid-column: 2;
   }
 
-  .block:nth-child(6) {
+  /* foros alineado en columna derecha */
+  .block:nth-child(7) {
     grid-column: 3;
   }
 }
@@ -195,37 +175,23 @@ footer a {
 @media (max-width: 1024px) and (min-width: 769px) {
 
   .sidebar-left {
-    display: none;
+    display: block; /* ⭐ vuelve a APARECER EN TABLET */
   }
 
   .container {
-
-    /* ⭐ Usa todo el ancho en tablet también */
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 30% 70%; /* ⭐ SIN HUECO A DERECHA */
     width: 100%;
   }
 
   .content {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .block:nth-child(1) { order: 1; }
-  .block:nth-child(2) { order: 2; }
-  .block:nth-child(3) { order: 3; }
-
-  .block:nth-child(4) { order: 4; }
-  .block:nth-child(5) { order: 5; }
-
+  /* CIUDADES centrado abajo en tablet */
   .block:nth-child(6) {
-    order: 7;
-    grid-column: 1 / -1;
-    width: 60%;
+    grid-column: span 2;
     justify-self: center;
-  }
-
-  .block:nth-child(7) {
-    order: 6;
-    grid-column: 2;
+    width: 70%;
   }
 }
 
@@ -268,5 +234,3 @@ footer a {
     margin-top: 10px;
   }
 }
-
-
