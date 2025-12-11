@@ -62,7 +62,6 @@ a {
   gap: 2%;
   padding: 20px;
   align-items: start;
-  grid-auto-rows: minmax(auto, auto);
 }
 
 /* ---------- COLUMNA IZQUIERDA ---------- */
@@ -93,7 +92,7 @@ a {
   gap: 20px;
 }
 
-/* Bloques con solo el título en cuadro */
+/* Bloques con título en cuadro y texto normal */
 .block {
   display: flex;
   flex-direction: column;
@@ -105,18 +104,17 @@ a {
   padding: 5px;
   text-align: center;
   min-height: 40px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .block ul {
   margin: 0;
-  padding: 5px 10px;
-  background: transparent;
+  padding: 0;
+  background: transparent; /* texto sin cuadro */
 }
 
 .block ul li {
   padding: 3px 0;
-  border: none;
 }
 
 /* --------------------
@@ -138,18 +136,17 @@ a {
   text-align: center;
   padding: 5px;
   min-height: 40px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .right-block ul {
   margin: 0;
-  padding: 5px 10px;
-  background: transparent;
+  padding: 0;
+  background: transparent; /* texto sin cuadro */
 }
 
 .right-block ul li {
   padding: 3px 0;
-  border: none;
 }
 
 /* =========================
@@ -160,7 +157,6 @@ a {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Alturas iguales por fila */
   .sidebar-right {
     grid-template-rows: repeat(2, 1fr);
   }
@@ -211,10 +207,10 @@ a {
 
   .block,
   .right-block {
-    background: #fff;
-    padding: 10px;
+    background: transparent; /* quitar cuadro de fondo en móvil */
+    padding: 0;
     margin-bottom: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: none;
   }
 
   .block h2,
@@ -223,6 +219,7 @@ a {
     color: #0047ab;
     text-align: center;
     margin-bottom: 5px;
+    padding: 5px;
   }
 
   /* HAMBURGUESA */
