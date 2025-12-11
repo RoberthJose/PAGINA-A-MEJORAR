@@ -40,7 +40,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .menu-toggle {
-  display: none; /* Solo móvil */
+  display: none;
   font-size: 24px;
   cursor: pointer;
 }
@@ -127,20 +127,47 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================
+   FOOTER CENTRADO
+========================= */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-family: Times New Roman, serif;
+  font-size: 14px;
+}
+
+footer a {
+  margin: 0 10px;
+  color: #0047ab;
+}
+
+/* =========================
    RESPONSIVE TABLET
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
 
+  /* Ocultar sidebar izquierda en tablet */
+  .sidebar-left {
+    display: none;
+  }
+
   .container {
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 75% 25%;
   }
 
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .block:nth-child(5) {
-    grid-column: 1 / -1; /* última fila centrada */
+  /* ORDEN CORRECTO */
+  /* 1: comunidad / vivienda / trabajo */
+  /* 2: servicios / se vende / ciudades */
+  /* 3: foro debate centrado debajo de se vende */
+  .block:nth-child(7) {
+    grid-column: 1 / -1; /* ocupa fila completa */
+    justify-self: center;
+    width: 70%;
   }
 }
 
@@ -149,7 +176,6 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 @media (max-width: 768px) {
 
-  /* Mostrar hamburguesa SOLO aquí */
   .menu-toggle {
     display: block;
   }
@@ -170,7 +196,6 @@ a { text-decoration: none; color: inherit; }
     color: #0047ab;
   }
 
-  /* Ocultar columna izquierda en móvil */
   .sidebar-left {
     display: none;
   }
@@ -197,4 +222,10 @@ a { text-decoration: none; color: inherit; }
   .right-block {
     margin-top: 10px;
   }
+
+  footer {
+    text-align: center;
+  }
 }
+
+
