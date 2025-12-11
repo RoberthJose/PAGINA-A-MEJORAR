@@ -94,13 +94,16 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
-  /* ✔ MISMA ALTURA DE CUADROS */
+  /* ✔ MISMA ALTURA EN CUADROS */
   align-items: stretch;
 }
 
 .block {
   display: flex;
   flex-direction: column;
+
+  /* ✔ Hace que TODOS los cuadros tengan exactamente la misma altura */
+  height: 100%;
 }
 
 .block h2 {
@@ -111,10 +114,16 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 6px;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
+
+  /* ✔ MISMA ALTURA DEL TÍTULO */
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .block ul {
-  flex: 1;
+  flex: 1; /* ✔ Empuja para igualar alturas */
 }
 
 .block ul li {
@@ -132,6 +141,12 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 6px;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
+
+  /* ✔ MISMA ALTURA DE TÍTULOS A LA DERECHA */
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* =========================
@@ -168,11 +183,17 @@ footer a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* ✔ FORO DE DEBATE CENTRADO DEBAJO DE SE VENDE */
+  /* ✔ FORO DE DEBATE CENTRADO */
   .block:nth-child(7) {
     grid-column: 1 / -1;
     width: 70%;
     justify-self: center;
+  }
+
+  /* ✔ Mantener misma altura de títulos en tablet */
+  .block h2,
+  .right-block h3 {
+    min-height: 42px;
   }
 }
 
@@ -220,4 +241,3 @@ footer a {
     margin-top: 10px;
   }
 }
-
