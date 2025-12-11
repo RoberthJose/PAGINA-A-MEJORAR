@@ -48,7 +48,6 @@ a { text-decoration: none; color: inherit; }
 .user-options a {
   margin-left: 12px;
   color: #0047ab;
-  font-family: Times New Roman, serif;
 }
 
 /* =========================
@@ -94,15 +93,13 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
-  /* ✔ MISMA ALTURA EN CUADROS */
+  /* ✔ Igualar alturas */
   align-items: stretch;
 }
 
 .block {
   display: flex;
   flex-direction: column;
-
-  /* ✔ Hace que TODOS los cuadros tengan exactamente la misma altura */
   height: 100%;
 }
 
@@ -115,7 +112,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 16px;
   font-family: Montserrat, sans-serif;
 
-  /* ✔ MISMA ALTURA DEL TÍTULO */
+  /* ✔ Títulos altura igual */
   min-height: 42px;
   display: flex;
   align-items: center;
@@ -123,7 +120,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .block ul {
-  flex: 1; /* ✔ Empuja para igualar alturas */
+  flex: 1; /* ✔ Igualar altura de cuadros */
 }
 
 .block ul li {
@@ -131,7 +128,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================
-   DERECHA
+   COLUMNA DERECHA
 ========================= */
 .right-block h3 {
   background: #ddd;
@@ -142,7 +139,6 @@ a { text-decoration: none; color: inherit; }
   font-size: 16px;
   font-family: Montserrat, sans-serif;
 
-  /* ✔ MISMA ALTURA DE TÍTULOS A LA DERECHA */
   min-height: 42px;
   display: flex;
   align-items: center;
@@ -150,7 +146,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================
-   FOOTER CENTRADO HORIZONTAL
+   FOOTER CENTRADO
 ========================= */
 footer {
   text-align: center;
@@ -166,9 +162,30 @@ footer a {
   color: #0047ab;
 }
 
-/* =========================
+/* ============================================================
+   RESPONSIVE PC (MEJORA DE ORDEN REAL DE COLUMNS)
+=============================================================== */
+@media (min-width: 1025px) {
+
+  /* ✔ Orden real tipo Craigslist PC */
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ✔ Foro de debate abajo centrado */
+  .block:nth-child(7) {
+    grid-column: 2; /* centro */
+  }
+
+  /* ✔ Ciudades alineado abajo derecha */
+  .block:nth-child(6) {
+    grid-column: 3;
+  }
+}
+
+/* ============================================================
    RESPONSIVE TABLET
-========================= */
+=============================================================== */
 @media (max-width: 1024px) and (min-width: 769px) {
 
   .sidebar-left {
@@ -179,32 +196,40 @@ footer a {
     grid-template-columns: 75% 25%;
   }
 
+  /* ✔ 2 columnas en tablet */
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* ✔ FORO DE DEBATE CENTRADO */
-  .block:nth-child(7) {
+  /* ✔ Orden perfecto tablet */
+  .block:nth-child(1) { order: 1; }
+  .block:nth-child(2) { order: 2; }
+  .block:nth-child(3) { order: 3; }
+
+  .block:nth-child(4) { order: 4; }
+  .block:nth-child(5) { order: 5; }
+
+  /* Ciudades centrado debajo */
+  .block:nth-child(6) { 
+    order: 7;
     grid-column: 1 / -1;
-    width: 70%;
+    width: 60%;
     justify-self: center;
   }
 
-  /* ✔ Mantener misma altura de títulos en tablet */
-  .block h2,
-  .right-block h3 {
-    min-height: 42px;
+  /* Foro debate justo debajo de se vende */
+  .block:nth-child(7) {
+    order: 6;
+    grid-column: 2;
   }
 }
 
-/* =========================
+/* ============================================================
    RESPONSIVE MÓVIL
-========================= */
+=============================================================== */
 @media (max-width: 768px) {
 
-  .menu-toggle {
-    display: block;
-  }
+  .menu-toggle { display: block; }
 
   .user-options {
     display: none;
@@ -212,9 +237,7 @@ footer a {
     margin-top: 10px;
   }
 
-  .user-options.show-menu {
-    display: flex;
-  }
+  .user-options.show-menu { display: flex; }
 
   .user-options a {
     padding: 8px 0;
@@ -222,9 +245,7 @@ footer a {
     color: #0047ab;
   }
 
-  .sidebar-left {
-    display: none;
-  }
+  .sidebar-left { display: none; }
 
   .container {
     display: flex;
@@ -241,3 +262,4 @@ footer a {
     margin-top: 10px;
   }
 }
+
