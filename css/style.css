@@ -243,32 +243,3 @@ footer a {
     grid-row: 4;              /* fila debajo de se vende */
   }
 }
-/* =========================
-   EFECTO SUBRAYADO ANIMADO EN ENLACES
-========================= */
-a {
-  position: relative;
-  color: #0047ab;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #0047ab;
-  transition: width 0.3s;
-}
-
-a:hover::after {
-  width: 100%;
-}
-
-
-
-
-
