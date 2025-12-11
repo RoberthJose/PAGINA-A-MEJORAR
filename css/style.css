@@ -93,6 +93,14 @@ a { text-decoration: none; color: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  /* ✔ MISMA ALTURA DE CUADROS */
+  align-items: stretch;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
 }
 
 .block h2 {
@@ -103,6 +111,10 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 6px;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
+}
+
+.block ul {
+  flex: 1;
 }
 
 .block ul li {
@@ -122,12 +134,8 @@ a { text-decoration: none; color: inherit; }
   font-family: Montserrat, sans-serif;
 }
 
-.right-block ul li {
-  padding: 2px 0;
-}
-
 /* =========================
-   FOOTER CENTRADO
+   FOOTER CENTRADO HORIZONTAL
 ========================= */
 footer {
   text-align: center;
@@ -135,15 +143,11 @@ footer {
   margin-top: 40px;
   font-family: Times New Roman, serif;
   font-size: 14px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 footer a {
   margin: 0 10px;
+  display: inline-block;
   color: #0047ab;
 }
 
@@ -152,7 +156,6 @@ footer a {
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
 
-  /* Ocultar sidebar izquierda en tablet */
   .sidebar-left {
     display: none;
   }
@@ -165,10 +168,10 @@ footer a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* FORO DE DEBATE PERFECTAMENTE CENTRADO EN TABLET */
+  /* ✔ FORO DE DEBATE CENTRADO DEBAJO DE SE VENDE */
   .block:nth-child(7) {
-    grid-column: 2 / 3;   /* debajo de 'se vende' */
-    width: 100%;
+    grid-column: 1 / -1;
+    width: 70%;
     justify-self: center;
   }
 }
@@ -213,19 +216,8 @@ footer a {
     gap: 15px;
   }
 
-  .block h2,
-  .right-block h3 {
-    background: #ddd;
-    color: #0047ab;
-    font-size: 16px;
-    padding: 5px;
-  }
-
   .right-block {
     margin-top: 10px;
   }
-
-  footer {
-    text-align: center;
-  }
 }
+
