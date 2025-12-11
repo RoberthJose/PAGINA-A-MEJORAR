@@ -84,7 +84,7 @@ a {
 }
 
 /* =========================
-   CONTENIDO CENTRAL
+   CONTENIDO CENTRAL (Grid Flexible)
 ========================= */
 .content {
   display: grid;
@@ -92,6 +92,7 @@ a {
   gap: 20px;
 }
 
+/* Bloques flexibles con misma altura por fila */
 .block {
   display: flex;
   flex-direction: column;
@@ -105,7 +106,7 @@ a {
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  min-height: 40px; /* misma altura para todos los títulos */
+  min-height: 40px; /* mismo tamaño de título */
 }
 
 .block ul li {
@@ -127,6 +128,7 @@ a {
   border: 1px solid #ddd;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  flex: 1; /* fuerza que todos los bloques tengan la misma altura que el bloque central correspondiente */
 }
 
 .right-block h3 {
@@ -134,7 +136,7 @@ a {
   color: #0047ab;
   text-align: center;
   padding: 5px;
-  min-height: 40px; /* misma altura que los títulos centrales */
+  min-height: 40px;
 }
 
 .right-block ul li {
@@ -147,17 +149,17 @@ a {
 @media (min-width: 1025px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
   }
 
-  /* Bloques de la fila 1 y fila 2 se alinean en altura */
-  .content, .sidebar-right {
-    display: flex;
-    gap: 20px;
+  .sidebar-right {
+    justify-content: stretch; /* los bloques derechos igual altura */
   }
 
   .content > .block,
   .sidebar-right > .right-block {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -168,6 +170,11 @@ a {
   .content {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    align-items: stretch;
+  }
+
+  .sidebar-right {
+    justify-content: stretch;
   }
 
   .content > .block,
@@ -208,9 +215,6 @@ a {
   .block, .right-block {
     width: 100%;
     margin-bottom: 15px;
-  }
-
-  .block, .right-block {
     padding: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
