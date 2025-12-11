@@ -214,4 +214,35 @@ footer a {
     gap: 15px;
   }
 }
+/* =========================
+   FORO DE DEBATE – UBICACIÓN FORZADA
+========================= */
+
+/* PC: 3 columnas */
+@media (min-width: 1025px) {
+  .content {
+    grid-auto-rows: minmax(200px, auto);
+  }
+
+  /* Foro debate debajo de se vende, centrado */
+  .block:nth-child(7) {
+    grid-column: 2; /* columna central */
+    grid-row: 3;    /* fila debajo de se vende */
+  }
+}
+
+/* TABLET: 2 columnas */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .content {
+    grid-auto-rows: minmax(200px, auto);
+  }
+
+  /* Foro debate debajo de se vende, columna izquierda (alineado a la izquierda de la tabla) */
+  .block:nth-child(7) {
+    grid-column: 1 / span 1; /* primera columna */
+    grid-row: 4;              /* fila debajo de se vende */
+  }
+}
+
+
 
