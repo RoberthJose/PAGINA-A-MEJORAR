@@ -1,182 +1,200 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Craigslist EC – Análisis PC</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+/* =========================
+   RESET Y GENERALES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Times New Roman, serif;
+}
 
-  <!-- ENCABEZADO -->
-  <header class="header">
-    <div class="logo">
-      <h1>craigslist<span>ec</span></h1>
-    </div>
-    <div class="location">
-      <strong>ecuador</strong>
-    </div>
+body {
+  background: #fafafa;
+  color: #222;
+  font-size: 14px;
+}
 
-    <!-- Botón hamburguesa -->
-    <div class="menu-toggle">☰</div>
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
 
-    <div class="user-options">
-      <a href="#">favoritos</a>
-      <a href="#">anunciate</a>
-      <a href="#">cuenta</a>
-    </div>
-  </header>
+/* =========================
+   HEADER
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
 
-  <!-- CONTENEDOR PRINCIPAL -->
-  <main class="container">
+.logo h1 {
+  color: #0047ab;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+}
 
-    <!-- COLUMNA IZQUIERDA -->
-    <aside class="sidebar-left menu">
-      <input type="text" placeholder="busca en CL">
-      
-      <!-- Estas secciones ya no se muestran en móvil -->
-      <section class="agenda hide-on-mobile">
-        <h3>agenda de eventos</h3>
-      </section>
+.location strong {
+  color: #222;
+}
 
-      <section class="ayuda hide-on-mobile">
-        <a href="#">ayuda, preguntas, abusos</a>
-        <a href="#">evitar estafas/fraudes</a>
-        <a href="#">consejos de seguridad</a>
-      </section>
+.menu-toggle {
+  display: none; /* Solo móvil */
+  font-size: 24px;
+  cursor: pointer;
+}
 
-      <section class="info hide-on-mobile">
-        <a href="#">acerca de craigslist</a>
-        <a href="#">what's new</a>
-        <a href="#">estado del sistema</a>
-      </section>
-    </aside>
+.user-options a {
+  margin-left: 12px;
+  color: #0047ab;
+  font-family: Times New Roman, serif;
+}
 
-    <!-- CONTENIDO CENTRAL -->
-    <section class="content">
-      <div class="block">
-        <h2>comunidad</h2>
-        <ul>
-          <li>actividades</li>
-          <li>animales</li>
-          <li>artistas</li>
-          <li>clases</li>
-          <li>eventos</li>
-          <li>grupos</li>
-          <li>músicos</li>
-          <li>noticias</li>
-          <li>voluntariado</li>
-        </ul>
-      </div>
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.container {
+  display: grid;
+  grid-template-columns: 20% 55% 20%;
+  gap: 2%;
+  padding: 20px;
+}
 
-      <div class="block">
-        <h2>vivienda</h2>
-        <ul>
-          <li>alquiler de pisos</li>
-          <li>bienes raíces</li>
-          <li>garaje / trastero</li>
-          <li>oficina / comercial</li>
-          <li>piso compartido</li>
-          <li>se busca casa</li>
-          <li>se busca habitación</li
-          <li>bienes raices</li>
-          <li>piso vacaciones</li>
-        </ul>
-      </div>
+/* =========================
+   COLUMNA IZQUIERDA
+========================= */
+.sidebar-left input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 15px;
+}
 
-      <div class="block">
-        <h2>servicios</h2>
-        <ul>
-          <li>animales</li>
-          <li>belleza</li>
-          <li>celular/móvil</li>
-          <li>clases</li>
-          <li>coche/moto</li>
-          <li>mudanzas</li>
-          <li>finanzas</li>
-          <li>informática</li>
-          <li>legal</li>
-        </ul>
-      </div>
+.sidebar-left section h3 {
+  background: #ddd;
+  color: #0047ab;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  margin-bottom: 5px;
+}
 
-      <div class="block">
-        <h2>se vende</h2>
-        <ul>
-          <li>antigüedades</li>
-          <li>arte / artesanías</li>
-          <li>ATV / UTV / motor</li>
-          <li>barcos</li>
-          <li>bicicletas</li>
-          <li>computadoras</li>
-          <li>electrodomésticos</li>
-          <li>muebles</li>
-          <li>juegos/juguetes</li>
-        </ul>
-      </div>
+.sidebar-left section a {
+  display: block;
+  padding: 3px 0;
+  margin-left: 5px;
+}
 
-      <div class="block">
-        <h2>foros de debate</h2>
-        <ul>
-          <li>abierto</li>
-          <li>animales</li>
-          <li>arte</li>
-          <li>dinero</li>
-          <li>música</li>
-          <li>política</li>
-          <li>religión</li>
-          <li>joyería</li>
-          <li>escritura</li>
-        </ul>
-      </div>
-    </section>
+/* =========================
+   CONTENIDO CENTRAL
+========================= */
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-    <!-- COLUMNA DERECHA -->
-    <aside class="sidebar-right">
-      <!-- Trabajo -->
-      <section class="right-block">
-        <h3>trabajo</h3>
-        <ul>
-          <li>administración/oficina</li>
-          <li>arquitectura</li>
-          <li>atención cliente</li>
-          <li>educación</li>
-          <li>marketing</li>
-          <li>salud</li>
-          <li>software</li>
-          <li>recursos humanos</li>
-          <li>ventas al por mayor</li>
-        </ul>
-      </section>
+.block h2 {
+  background: #ddd;
+  color: #0047ab;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+}
 
-      <!-- Ciudades -->
-      <section class="right-block">
-        <h3>ciudades</h3>
-        <ul>
-          <li>quito</li>
-          <li>guayaquil</li>
-          <li>cuenca</li>
-          <li>ambato</li>
-          <li>manta</li>
-          <li>esmeraldas</li>
-          <li>riobamba</li>
-          <li>loja</li>
-          <li>portoviejo</li>
-        </ul>
-      </section>
-    </aside>
+.block ul li {
+  padding: 2px 0;
+}
 
-  </main>
+/* =========================
+   DERECHA
+========================= */
+.right-block h3 {
+  background: #ddd;
+  color: #0047ab;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+}
 
-  <!-- PIE DE PÁGINA -->
-  <footer class="footer">
-    <a href="#">ayuda</a>
-    <a href="#">seguridad</a>
-    <a href="#">privacidad</a>
-    <a href="#">condiciones</a>
-    <p>© 2025 craigslist</p>
-  </footer>
+.right-block ul li {
+  padding: 2px 0;
+}
 
-  <script src="js/main.js"></script>
-</body>
-</html>
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 1024px) and (min-width: 769px) {
 
+  .container {
+    grid-template-columns: 25% 75%;
+  }
+
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .block:nth-child(5) {
+    grid-column: 1 / -1; /* última fila centrada */
+  }
+}
+
+/* =========================
+   RESPONSIVE MÓVIL
+========================= */
+@media (max-width: 768px) {
+
+  /* Mostrar hamburguesa SOLO aquí */
+  .menu-toggle {
+    display: block;
+  }
+
+  .user-options {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .user-options.show-menu {
+    display: flex;
+  }
+
+  .user-options a {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    color: #0047ab;
+  }
+
+  /* Ocultar columna izquierda en móvil */
+  .sidebar-left {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .block h2,
+  .right-block h3 {
+    background: #ddd;
+    color: #0047ab;
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .right-block {
+    margin-top: 10px;
+  }
+}
