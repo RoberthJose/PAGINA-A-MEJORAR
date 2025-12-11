@@ -15,6 +15,7 @@ body {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 a {
@@ -92,10 +93,10 @@ a {
   gap: 20px;
 }
 
-/* Bloques con título en cuadro y texto normal */
 .block {
   display: flex;
   flex-direction: column;
+  background: transparent; /* quitar cuadro de todo el bloque */
 }
 
 .block h2 {
@@ -103,18 +104,13 @@ a {
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  min-height: 40px;
+  min-height: 40px; /* altura uniforme */
   margin-bottom: 5px;
-}
-
-.block ul {
-  margin: 0;
-  padding: 0;
-  background: transparent; /* texto sin cuadro */
 }
 
 .block ul li {
   padding: 3px 0;
+  background: transparent; /* asegurar que lista no tenga fondo */
 }
 
 /* --------------------
@@ -128,6 +124,7 @@ a {
 .right-block {
   display: flex;
   flex-direction: column;
+  background: transparent; /* quitar cuadro de todo el bloque */
 }
 
 .right-block h3 {
@@ -135,18 +132,13 @@ a {
   color: #0047ab;
   text-align: center;
   padding: 5px;
-  min-height: 40px;
+  min-height: 40px; /* altura uniforme */
   margin-bottom: 5px;
-}
-
-.right-block ul {
-  margin: 0;
-  padding: 0;
-  background: transparent; /* texto sin cuadro */
 }
 
 .right-block ul li {
   padding: 3px 0;
+  background: transparent; /* asegurar que lista no tenga fondo */
 }
 
 /* =========================
@@ -205,9 +197,10 @@ a {
     gap: 0;
   }
 
+  /* Bloques sin fondo, solo título con cuadro */
   .block,
   .right-block {
-    background: transparent; /* quitar cuadro de fondo en móvil */
+    background: transparent;
     padding: 0;
     margin-bottom: 15px;
     box-shadow: none;
@@ -218,8 +211,9 @@ a {
     background: #ddd;
     color: #0047ab;
     text-align: center;
-    margin-bottom: 5px;
     padding: 5px;
+    min-height: 40px;
+    margin-bottom: 5px;
   }
 
   /* HAMBURGUESA */
