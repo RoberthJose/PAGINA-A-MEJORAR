@@ -135,6 +135,11 @@ footer {
   margin-top: 40px;
   font-family: Times New Roman, serif;
   font-size: 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 footer a {
@@ -160,14 +165,11 @@ footer a {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* ORDEN CORRECTO */
-  /* 1: comunidad / vivienda / trabajo */
-  /* 2: servicios / se vende / ciudades */
-  /* 3: foro debate centrado debajo de se vende */
+  /* FORO DE DEBATE PERFECTAMENTE CENTRADO EN TABLET */
   .block:nth-child(7) {
-    grid-column: 1 / -1; /* ocupa fila completa */
+    grid-column: 2 / 3;   /* debajo de 'se vende' */
+    width: 100%;
     justify-self: center;
-    width: 70%;
   }
 }
 
@@ -227,5 +229,3 @@ footer a {
     text-align: center;
   }
 }
-
-
