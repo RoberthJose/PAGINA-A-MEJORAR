@@ -55,9 +55,18 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .container {
   display: grid;
-  grid-template-columns: 20% 55% 20%;
+
+  /* ⭐ ANTES: 20% 55% 20% → generaba hueco a la derecha
+     ⭐ AHORA: columnas más amplias y sin espacio perdido */
+  grid-template-columns: 18% 60% 18%;
+
   gap: 2%;
   padding: 20px;
+
+  /* ⭐ Para que nunca deje espacio sobrante */
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -90,10 +99,11 @@ a { text-decoration: none; color: inherit; }
 ========================= */
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
 
-  /* ✔ Igualar alturas */
+  /* ⭐ Para usar más ancho de columna central */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
   align-items: stretch;
 }
 
@@ -112,7 +122,6 @@ a { text-decoration: none; color: inherit; }
   font-size: 16px;
   font-family: Montserrat, sans-serif;
 
-  /* ✔ Títulos altura igual */
   min-height: 42px;
   display: flex;
   align-items: center;
@@ -120,7 +129,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .block ul {
-  flex: 1; /* ✔ Igualar altura de cuadros */
+  flex: 1;
 }
 
 .block ul li {
@@ -163,21 +172,18 @@ footer a {
 }
 
 /* ============================================================
-   RESPONSIVE PC (MEJORA DE ORDEN REAL DE COLUMNS)
+   RESPONSIVE PC
 =============================================================== */
 @media (min-width: 1025px) {
 
-  /* ✔ Orden real tipo Craigslist PC */
   .content {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  /* ✔ Foro de debate abajo centrado */
   .block:nth-child(7) {
-    grid-column: 2; /* centro */
+    grid-column: 2;
   }
 
-  /* ✔ Ciudades alineado abajo derecha */
   .block:nth-child(6) {
     grid-column: 3;
   }
@@ -193,15 +199,16 @@ footer a {
   }
 
   .container {
-    grid-template-columns: 75% 25%;
+
+    /* ⭐ Usa todo el ancho en tablet también */
+    grid-template-columns: 70% 30%;
+    width: 100%;
   }
 
-  /* ✔ 2 columnas en tablet */
   .content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* ✔ Orden perfecto tablet */
   .block:nth-child(1) { order: 1; }
   .block:nth-child(2) { order: 2; }
   .block:nth-child(3) { order: 3; }
@@ -209,15 +216,13 @@ footer a {
   .block:nth-child(4) { order: 4; }
   .block:nth-child(5) { order: 5; }
 
-  /* Ciudades centrado debajo */
-  .block:nth-child(6) { 
+  .block:nth-child(6) {
     order: 7;
     grid-column: 1 / -1;
     width: 60%;
     justify-self: center;
   }
 
-  /* Foro debate justo debajo de se vende */
   .block:nth-child(7) {
     order: 6;
     grid-column: 2;
@@ -250,6 +255,7 @@ footer a {
   .container {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .content {
@@ -262,4 +268,5 @@ footer a {
     margin-top: 10px;
   }
 }
+
 
