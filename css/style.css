@@ -11,7 +11,7 @@
 body {
   background: #fafafa;
   color: #222;
-  font-size: 14px; /* texto general más legible */
+  font-size: 14px;
 }
 
 ul {
@@ -22,7 +22,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-  font-size: 14px; /* links legibles */
+  font-size: 14px;
   font-family: 'Times New Roman', serif;
 }
 
@@ -44,20 +44,10 @@ a {
   font-size: 20px;
 }
 
-.location strong {
-  color: #222;
-}
-
 .menu-toggle {
   display: none;
   cursor: pointer;
   font-size: 24px;
-}
-
-.user-options a {
-  margin-left: 10px;
-  color: #0047ab;
-  font-size: 14px;
 }
 
 /* =========================
@@ -71,17 +61,12 @@ a {
   align-items: start;
 }
 
-/* ---------- COLUMNA IZQUIERDA ---------- */
+/* =========================
+   SIDEBAR IZQUIERDA
+========================= */
 .sidebar-left {
   display: flex;
   flex-direction: column;
-}
-
-.sidebar-left input {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-  font-size: 14px;
 }
 
 .sidebar-left section h3 {
@@ -94,10 +79,40 @@ a {
   margin-bottom: 5px;
 }
 
-.sidebar-left section a {
-  display: block;
-  padding: 3px 0;
-  margin-left: 5px;
+/* =========================
+   CUADROS (PC + TABLET + MÓVIL)
+========================= */
+.block, .right-block {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* 🔥 HOVER ELEGANTE – SOLO PC */
+@media (min-width: 1025px) {
+  .block:hover, .right-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+}
+
+/* Títulos */
+.block h2, .right-block h3 {
+  background: #dedede;
+  color: #0047ab;
+  text-align: center;
+  padding: 8px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Texto */
+.block ul li, .right-block ul li {
+  padding: 4px 8px;
   font-size: 14px;
   font-family: 'Times New Roman', serif;
 }
@@ -111,95 +126,66 @@ a {
   gap: 20px;
 }
 
-.block {
-  display: flex;
-  flex-direction: column;
-  background: transparent; /* solo título con cuadro */
-}
-
-.block h2 {
-  background: #ddd;
-  color: #0047ab;
-  padding: 5px;
-  text-align: center;
-  min-height: 40px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 5px;
-}
-
-.block ul li {
-  padding: 3px 0;
-  background: transparent;
-  font-size: 14px;
-  font-family: 'Times New Roman', serif;
-}
-
-/* --------------------
-   COLUMNA DERECHA
--------------------- */
-.sidebar-right {
-  display: grid;
-  gap: 20px;
-}
-
-.right-block {
-  display: flex;
-  flex-direction: column;
-  background: transparent;
-}
-
-.right-block h3 {
-  background: #ddd;
-  color: #0047ab;
-  text-align: center;
-  padding: 5px;
-  min-height: 40px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 5px;
-}
-
-.right-block ul li {
-  padding: 3px 0;
-  background: transparent;
-  font-size: 14px;
-  font-family: 'Times New Roman', serif;
-}
-
 /* =========================
-   PC: filas
+   PC
 ========================= */
 @media (min-width: 1025px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .sidebar-right {
-    grid-template-rows: repeat(2, 1fr);
-  }
 }
 
 /* =========================
-   TABLET (769px a 1024px)
+   TABLET (769–1024px)
+   ORDEN EXACTO QUE PEDISTE
 ========================= */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .content {
-    grid-template-columns: repeat(2, 1fr);
+
+  /* Barra lateral como móvil */
+  .sidebar-left {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
   }
 
-  .block:nth-child(5) {
-    grid-column: 1 / -1;
+  /* Orden de las secciones */
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: center;
   }
 
+  /* Bloques en orden exacto */
+
+  /* Fila 1: comunidad, vivienda, trabajo */
+  .block:nth-child(1) { order: 1; }
+  .block:nth-child(2) { order: 2; }
+  .block:nth-child(3) { order: 3; }
+
+  /* Fila 2: servicios, se vende, ciudades */
+  .block:nth-child(4) { order: 4; }
+  .block:nth-child(5) { order: 5; }
+  .block:nth-child(6) { order: 6; }
+
+  /* Fila 3 → FORO DE DEBATE centrado */
+  .block:nth-child(7) {
+    order: 7;
+    grid-column: 2 / 3; /* CENTRADO */
+  }
+
+  /* Sidebar derecha al final */
   .sidebar-right {
-    grid-template-rows: repeat(2, auto);
+    order: 100;
   }
 }
 
 /* =========================
-   MÓVIL (max-width: 768px)
+   MÓVIL
 ========================= */
 @media (max-width: 768px) {
   .container {
@@ -211,67 +197,34 @@ a {
     display: none;
   }
 
-  .sidebar-right {
-    width: 100%;
-    order: 99;
-  }
-
   .content {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 15px;
   }
 
-  .block,
-  .right-block {
-    background: transparent;
-    padding: 0;
+  .block, .right-block {
+    border-radius: 6px;
     margin-bottom: 15px;
-    box-shadow: none;
   }
 
-  .block h2,
-  .right-block h3 {
-    background: #ddd;
-    color: #0047ab;
-    text-align: center;
-    padding: 5px;
-    min-height: 40px;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 5px;
-  }
-
-  .block ul li,
-  .right-block ul li {
-    font-size: 14px;
-    font-family: 'Times New Roman', serif;
-  }
-
-  /* HAMBURGUESA */
   .menu-toggle {
     display: block;
   }
-
-  .user-options {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-  }
-
-  .user-options.show-menu {
-    display: flex;
-  }
-
-  .user-options a {
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-    color: #0047ab;
-    font-size: 14px;
-    font-family: 'Times New Roman', serif;
-  }
 }
 
+/* =========================
+   FOOTER CENTRADO
+========================= */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  color: #444;
+}
 
-
+footer a {
+  margin: 0 8px;
+  color: #0047ab;
+}
