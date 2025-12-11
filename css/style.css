@@ -5,12 +5,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   background: #fafafa;
   color: #222;
+  font-family: 'Times New Roman', serif;
 }
 
 ul {
@@ -37,6 +37,7 @@ a {
 
 .logo h1 {
   color: #0047ab;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .location strong {
@@ -82,6 +83,18 @@ a {
   padding: 5px;
   text-align: center;
   color: #0047ab;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  min-height: 40px;
+  margin-bottom: 5px;
+}
+
+.sidebar-left section a {
+  display: block;
+  padding: 3px 0;
+  font-size: 12px;
+  font-family: 'Times New Roman', serif;
+  color: #222;
 }
 
 /* =========================
@@ -96,7 +109,7 @@ a {
 .block {
   display: flex;
   flex-direction: column;
-  background: transparent; /* quitar cuadro de todo el bloque */
+  background: transparent;
 }
 
 .block h2 {
@@ -104,13 +117,17 @@ a {
   color: #0047ab;
   padding: 5px;
   text-align: center;
-  min-height: 40px; /* altura uniforme */
+  min-height: 40px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 5px;
 }
 
 .block ul li {
   padding: 3px 0;
-  background: transparent; /* asegurar que lista no tenga fondo */
+  font-size: 12px;
+  font-family: 'Times New Roman', serif;
+  background: transparent;
 }
 
 /* --------------------
@@ -124,7 +141,7 @@ a {
 .right-block {
   display: flex;
   flex-direction: column;
-  background: transparent; /* quitar cuadro de todo el bloque */
+  background: transparent;
 }
 
 .right-block h3 {
@@ -132,13 +149,17 @@ a {
   color: #0047ab;
   text-align: center;
   padding: 5px;
-  min-height: 40px; /* altura uniforme */
+  min-height: 40px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 5px;
 }
 
 .right-block ul li {
   padding: 3px 0;
-  background: transparent; /* asegurar que lista no tenga fondo */
+  font-size: 12px;
+  font-family: 'Times New Roman', serif;
+  background: transparent;
 }
 
 /* =========================
@@ -197,7 +218,6 @@ a {
     gap: 0;
   }
 
-  /* Bloques sin fondo, solo título con cuadro */
   .block,
   .right-block {
     background: transparent;
@@ -213,7 +233,14 @@ a {
     text-align: center;
     padding: 5px;
     min-height: 40px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 5px;
+  }
+
+  .sidebar-left section a {
+    padding: 5px 0;
+    font-size: 12px;
   }
 
   /* HAMBURGUESA */
@@ -237,3 +264,5 @@ a {
     color: #0047ab;
   }
 }
+
+
